@@ -4,12 +4,13 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
   def index
-    @notes = Note.all
+    @notes = Note.order(updated_at: :desc)
   end
 
   # GET /notes/1
   # GET /notes/1.json
   def show
+    #I'm not sure if I'm going to use this aside from JSON
   end
 
   # GET /notes/new
@@ -28,7 +29,7 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       if @note.save
-        format.html { redirect_to @note, notice: 'Note was successfully created.' }
+        format.html { redirect_to notes_url, notice: 'Note was successfully created.' }
         format.json { render :show, status: :created, location: @note }
       else
         format.html { render :new }
@@ -69,6 +70,6 @@ class NotesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def note_params
-      params.require(:note).permit(:title, :body)
+      params.require(:note).permit(:title, :body, :subject)
     end
 end
