@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="ui cards">
+  <div class="card">
+    <div class="content">
+      <!-- <img class="right floated mini ui image" src="/images/avatar/large/jenny.jpg"> -->
+      <div class="header">
+        <%= @note.title %>
+      </div>
+      <div class="meta">
+        <%= @note.subject %>
+      </div>
+      <div class="description">
+        <%= @note.body %>
+      </div>
+    </div>
+    <div class="extra content">
+      <div class="ui two buttons">
+        <div class="ui basic green button"><%=link_to 'Edit', edit_note_path(@note) %></div>
+        <div class="ui basic red button"><%= link_to 'Back', notes_path %></div>
+      </div>
+    </div>
+  </div>
+</div>
