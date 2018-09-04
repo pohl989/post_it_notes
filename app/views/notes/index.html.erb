@@ -1,13 +1,24 @@
-<div class="ui four column doubling stackable grid container">
-  <p id="notice"><%= notice %></p>
-  <h1>Notes</h1>
-  <button class="ui inverted primary button">+</button>
+<div class="ui four column container">
+  <div style="margin: 15px;" class="ui info message">
+    <i class="close icon"></i>
+    <div class="header">
+      Update:
+    </div>
+    <ul class="list">
+      <li id="notice"><%= notice %></li>
+
+    </ul>
+  </div>
+  <div style="display: inline-block;">
+    <h1>Notes</h1>
+  </div>
+  <div style="display: inline-block; margin: 15px">
+    <button class="ui inverted primary button">
+      <%= link_to '+', new_note_path %>
+    </button>
 </div>
 <div class="ui four column doubling stackable grid container">
   <% @notes.each do |note| %>
     <%=render 'notes/note', note: note%>
   <%end%>
 </div>
-
-
-<%= link_to 'New Note', new_note_path %>
